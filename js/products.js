@@ -1,2 +1,1 @@
-let productos = getJSONData(PRODUCTS_URL + "101" + EXT_TYPE);
-console.log(productos);
+let productos = await getJSONData(PRODUCTS_URL + "101" + EXT_TYPE);
