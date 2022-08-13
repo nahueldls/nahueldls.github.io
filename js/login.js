@@ -7,5 +7,6 @@ const e = document.getElementById("email");
 function redireccion(){
     if (n.value !="" && e.value !="") {
         myFunction()
+    } else {
     }
 }
