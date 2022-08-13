@@ -1,5 +1,5 @@
 function myFunction() {
-    location.replace("file:///C:/Users/PC/Documents/GitHub/nahueldls.github.io/portada.html")
+    location.replace("http://127.0.0.1:5500/portada.html")
 }
 const n = document.getElementById("name");
 const e = document.getElementById("email");
