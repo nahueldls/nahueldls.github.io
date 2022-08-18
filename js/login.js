@@ -10,3 +10,7 @@ function redireccion(){
     } else {
     }
 }
+
+function handleCredentialResponse() {
+    location.replace("https://nahueldls.github.io/portada.html")
+}
