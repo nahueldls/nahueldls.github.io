@@ -2,7 +2,7 @@
 //console.log(lista) 
 const lista = await fetch("https://japceibal.github.io/emercado-api/cats_products/101.json")
                  .then(response => response.json());
-                 console.log(lista.products)
+                 console.log(lista.products) //prueba de que funciona
 const contenedor = document.getElementById("contenedor"); 
 function crearHtml(lista_de_productos) { 
 
@@ -29,7 +29,7 @@ function crearHtml(lista_de_productos) {
 
 }
 
-crearHtml(lista);
+crearHtml(lista); 
 
 
 
