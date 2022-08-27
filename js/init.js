@@ -39,3 +39,8 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+/* function mostrar() {
+  const local = document.getElementById("local");
+  local.innerHTML = localStorage.getItem("email");
+} */
