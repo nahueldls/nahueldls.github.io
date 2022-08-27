@@ -33,6 +33,43 @@ function crearHtml(lista_de_productos) {
 crearHtml(lista); 
 
 
+ let texto = document.getElementById("textogrande");
+
+switch (id) {
+    case "101":
+        texto.innerHTML = "verás aquí todos los productos de la categoría Autos"
+        break;
+    case "102":
+        texto.innerHTML = "verás aquí todos los productos de la categoría Juguetes"
+        break;
+    case "103":
+        texto.innerHTML = "verás aquí todos los productos de la categoría Muebles"
+        break;
+    case "104":
+        texto.innerHTML = "verás aquí todos los productos de la categoría Herramientas"
+        break;
+        case "105":
+        texto.innerHTML = "verás aquí todos los productos de la categoría Computadoras"
+        break;
+        case "106":
+        texto.innerHTML = "verás aquí todos los productos de la categoría Vestimenta"
+        break;
+        case "107":
+        texto.innerHTML = "verás aquí todos los productos de la categoría Electrodomésticos"
+        break;
+        case "108":
+        texto.innerHTML = "verás aquí todos los productos de la categoría Deporte"
+        break;
+        case "109":
+        texto.innerHTML = "verás aquí todos los productos de la categoría Celulares"
+        break;
+
+    default:
+        break;
+}
+
+
+
 
 
 
