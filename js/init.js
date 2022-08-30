@@ -40,7 +40,6 @@ let getJSONData = function(url){
     });
 }
 
-/* function mostrar() {
-  const local = document.getElementById("local");
-  local.innerHTML = localStorage.getItem("email");
-} */
+const nav = document.getElementById("local");
+nav.innerHTML = localStorage.getItem("email");
+

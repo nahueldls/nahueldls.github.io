@@ -21,12 +21,15 @@ function redireccion(){
  const p = document.getElementById("password");
  const button = document.getElementById("enviar");
 
-  function iniciar() {
-    if( e.value !== "" && p.value !== "") {
+ 
+ 
+ function validation() {
+    if ( e.value !== "" && p.value !== "") {
         localStorage.setItem("email", e.value);
-        const email = localStorage.getItem("email");
-        window.location.href = "https://nahueldls.github.io/portada.html"
+        const mostra = localStorage.getItem("email")
+        location.href = "portada.html"
     }
- }
+}
 
-button.addEventListener("click", iniciar);
+
+button.addEventListener("click", validation)

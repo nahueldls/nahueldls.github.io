@@ -1,6 +1,7 @@
 //let lista = await getJSONData(PRODUCTS_URL + "101" + EXT_TYPE); esto no me sirvió
-//console.log(lista) 
-const lista = await fetch("https://japceibal.github.io/emercado-api/cats_products/101.json")
+//console.log(lista)
+const id = localStorage.getItem("catID"); 
+const lista = await fetch(`https://japceibal.github.io/emercado-api/cats_products/${id}.json`)
                  .then(response => response.json());
                  console.log(lista.products) //prueba de que funciona
 const contenedor = document.getElementById("contenedor"); 
