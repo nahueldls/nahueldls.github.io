@@ -17,6 +17,8 @@ const buttonOrder = document.getElementById("sortAsc");
 const buttonOrderBack = document.getElementById("sortDesc");
 const relevancia = document.getElementById("relevancia");
 const limpiar = document.getElementById("clearRangeFilter");
+const minimo = document.getElementById("rangeFilterCountMin"); //input de precio mínimo
+const maximo = document.getElementById("rangeFilterCountMax"); //input de precio máximo
 // BOTONES Y MÁS
 
 function crearHtml(lista_de_productos) { 
@@ -75,10 +77,22 @@ function crearHtml(lista_de_productos) {
                 return -1;
             }
         }))
-    } else if ( inputMinimo != undefined && inputMinimo != "" && inputMaximo != undefined && inputMaximo != "") {
-        crearHtml(productos.sort(function(a, b) {
-
-        }))
+    } else if ( screen == "filtrado") {
+        let inputMinimo = minimo.value; //valor de input (precio mínimo)
+        let inputMaximo = maximo.value; //valor de input (precio máximo) 
+        if ( inputMinimo && inputMinimo > 0 && inputMaximo && inputMaximo > 0 ) {
+            crearHtml(productos.filter( producto => producto.cost >= inputMinimo && producto.cost <= inputMaximo))
+        } else if( inputMinimo && inputMinimo > 0) { //rellena input de menor que ----------
+            crearHtml(productos.filter( producto => producto.cost >= inputMinimo))
+        } else if( inputMaximo && inputMaximo > 0 ) { //rellena input mayor que -------------
+            crearHtml(productos.filter( producto => producto.cost <= inputMaximo))
+        }
+    } else if ( screen == "limpio") {
+        let inputMinimo = minimo.value;
+        let inputMaximo = minimo.value;
+        inputMaximo = 0;
+        inputMinimo = 0;
+        crearHtml(productos)
     }
  }
  showHtml()
@@ -124,18 +138,22 @@ variable screen y vaya hacia la function showHtml().
 
 
 const filtrar = document.getElementById("rangeFilterCount"); //botón de filtrar
-const minimo = document.getElementById("rangeFilterCountMin"); //input de precio mínimo
-const maximo = document.getElementById("rangeFilterCountMax"); //input de precio máximo
-let inputMinimo = minimo.value; //valor de input (precio mínimo)
-let inputMaximo = maximo.value; //valor de input (precio máximo)
 
 
-function saveAndConvert() {
-    valorMinimo = parseInt(valorMinimo);
-    valorMaximo = parseInt(valorMaximo);
-    showHtml();
+function filtrando() {
+    screen = "filtrado"
+    showHtml()
+} 
+filtrar.addEventListener("click", filtrando);
+
+
+
+function clearAll() {
+    screen = "limpio"
+    showHtml()
 }
 
+limpiar.addEventListener("click", clearAll)
 
 
 
