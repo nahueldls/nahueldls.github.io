@@ -56,8 +56,8 @@ const buttonOrder = document.getElementById("sortAsc");
 const buttonOrderBack = document.getElementById("sortDesc");
 const relevancia = document.getElementById("relevancia");
 const limpiar = document.getElementById("clearRangeFilter");
-const minimo = document.getElementById("rangeFilterCountMin"); //input de precio mínimo
-const maximo = document.getElementById("rangeFilterCountMax"); //input de precio máximo
+let minimo = document.getElementById("rangeFilterCountMin"); //input de precio mínimo
+let maximo = document.getElementById("rangeFilterCountMax"); //input de precio máximo
 // BOTONES Y MÁS
 
 function crearHtml(lista_de_productos) { 
@@ -127,10 +127,8 @@ function crearHtml(lista_de_productos) {
             crearHtml(productos.filter( producto => producto.cost <= inputMaximo))
         }
     } else if ( screen == "limpio") {
-        let inputMinimo = minimo.value;
-        let inputMaximo = minimo.value;
-        inputMaximo = 0;
-        inputMinimo = 0;
+        minimo.value = undefined;
+        maximo.value = undefined;
         crearHtml(productos)
     }
  }
@@ -160,20 +158,6 @@ function relevanciaSc() {
 
 
      //FILTROS NÚMERICOS
-
-     /* ideas generales --> - está relacionado con el <cost>.
-                            - tiene que guardar el valor recibido en su input.
-                            - convertir en un dato tipo number el costo.
-                            - analizar si está dentro del rango de precio(el costo)
-                              y a partir de eso mostrar los productos.
-                            algoritmo:
-qué es lo primero quq quiero hacer? -crear una function que reciba los input max y min,cambie el valor de la 
-variable screen y vaya hacia la function showHtml().
-
-*/
-
-
-                                 
 
 
 const filtrar = document.getElementById("rangeFilterCount"); //botón de filtrar
