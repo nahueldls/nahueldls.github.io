@@ -1,43 +1,4 @@
-/* //let lista = await getJSONData(PRODUCTS_URL + "101" + EXT_TYPE); esto no me sirvió
-//console.log(lista) 
-let id = localStorage.getItem("catID");
-const lista = await fetch(`https://japceibal.github.io/emercado-api/cats_products/${id}.json`)
-                 .then(response => response.json());
-                 console.log(lista.products) //prueba de que funciona
-const contenedor = document.getElementById("contenedor"); 
-function crearHtml(lista_de_productos) { 
-
-    for( let i = 0; i < lista_de_productos.products.length; i++) {
-        contenedor.innerHTML += `
-        <div onclick="setCatID(${lista_de_productos.products[i].id})" class="list-group-item list-group-item-action cursor-active">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="${lista_de_productos.products[i].image}" alt="autos" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">${lista_de_productos.products[i].name}-${lista_de_productos.products[i].currency} ${lista_de_productos.products[i].cost}</h4>
-                            <small class="text-muted">${lista_de_productos.products[i].soldCount} artículos</small>
-                        </div>
-                        <p class="mb-1">${lista_de_productos.products[i].description}</p>
-                    </div>
-                </div>
-        </div>    
-            `
-
-
-    }
-
-}
-
-crearHtml(lista);  VERSIÓN NO MODIFICADA*/
-
-
-                        //VERSIÓN MODIFICADA
-
-
-
-// Usando la Api fetch ----->
+// Usando la Api fetch -----
 const id = localStorage.getItem("catID"); 
 const lista = await fetch(`https://japceibal.github.io/emercado-api/cats_products/${id}.json`)
                  .then(response => response.json());
@@ -49,7 +10,7 @@ const lista = await fetch(`https://japceibal.github.io/emercado-api/cats_product
 let screen;
 const contenedor = document.getElementById("funciona"); 
 let productos = lista.products;
-console.log(productos[0])
+console.log(productos)
 
 // BOTONES Y MÁS
 const buttonOrder = document.getElementById("sortAsc");
@@ -69,7 +30,7 @@ function crearHtml(lista_de_productos) {
         <div class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
-                        <img src="${lista_de_productos[i].image}" alt="autos" class="img-thumbnail">
+                        <img src="${lista_de_productos[i].image}" alt="${lista_de_productos[i].name}" class="img-thumbnail">
                     </div>
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
@@ -85,9 +46,14 @@ function crearHtml(lista_de_productos) {
 
 }
 
-// crearHtml(lista.products)
-
-// window.onload = showHtml();
+/* document.getElementById("").addEventListener("click", function() {
+    location.href = "product-info.html"
+ }) cuando introduzco una id que es creada desde el inner html encima y no desde el archivo.html no me funciona 
+ el boton*/
+ function setCatID() {
+    // localStorage.setItem("catID", id);
+    window.location = "products.html"
+}
 
  function showHtml() {
     if( screen == undefined){
