@@ -27,7 +27,7 @@ function crearHtml(lista_de_productos) {
 
     for( let i = 0; i < lista_de_productos.length; i++) {
         contenedor.innerHTML += `
-        <div class="list-group-item list-group-item-action cursor-active">
+        <div class="list-group-item list-group-item-action cursor-active product">
                 <div class="row">
                     <div class="col-3">
                         <img src="${lista_de_productos[i].image}" alt="${lista_de_productos[i].name}" class="img-thumbnail">
@@ -43,17 +43,23 @@ function crearHtml(lista_de_productos) {
         </div>    
             `
     }
+    
+    const claseproducto = document.getElementsByClassName("product");
+    
+    for (let i = 0; i < claseproducto.length; i++) {
+        claseproducto[i].addEventListener("click", function(){
+            localStorage.setItem("productID", lista_de_productos[i].id);
+            window.location = "product-info.html"
+        })
+    }
 
 }
 
-/* document.getElementById("").addEventListener("click", function() {
-    location.href = "product-info.html"
- }) cuando introduzco una id que es creada desde el inner html encima y no desde el archivo.html no me funciona 
- el boton*/
- function setCatID() {
-    // localStorage.setItem("catID", id);
-    window.location = "products.html"
-}
+
+//  function setproductID(id) {
+//     localStorage.setItem("productID", id);
+//     window.location = "products.html"
+// }
 
  function showHtml() {
     if( screen == undefined){
