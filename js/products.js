@@ -55,12 +55,6 @@ function crearHtml(lista_de_productos) {
 
 }
 
-
-//  function setproductID(id) {
-//     localStorage.setItem("productID", id);
-//     window.location = "products.html"
-// }
-
  function showHtml() {
     if( screen == undefined){
         crearHtml(productos)

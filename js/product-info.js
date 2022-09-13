@@ -7,7 +7,7 @@ const lista_de_productos = await fetch(`https://japceibal.github.io/emercado-api
 // console.log(lista_de_productos.images[0])
 let contenedor_div = document.getElementById("producto");
 let for_images = document.getElementById("for_images");
-console.log(lista_de_productos.images)
+// console.log(lista_de_productos)
 
 function showcontent(array_list) {
     let content = ""
@@ -37,3 +37,38 @@ showcontent(lista_de_productos)
 }
 
 images()
+
+const stars = document.getElementById("estrellas");
+
+// COMENTARIOS
+
+/* ideas: los comentarios tienen su propio Json aparte del producto pero se obtienen con la id del mismo,
+asi que debo guardar la id del producto(ya lo hice) y guardar en una variable el link de los comentarios.
+los comentarios son más de uno,necesito un bucle for que los recorra e imprima en pantalla,con cierta estructura
+html,por lo que debo crear un div que contenga los comentarios*/
+
+const lista_de_comentarios = await fetch(`https://japceibal.github.io/emercado-api/products_comments/${id_products}.json`)
+.then(response => response.json())
+// console.log(lista_de_comentarios) //prueba de que funciona
+
+const div_for_comments = document.getElementById("comments");
+
+
+function showComments() {
+    let content = ""
+    for ( let i = 0; i < lista_de_comentarios.length; i++) { //recorre los comentarios
+        for (let u = 0; u < lista_de_comentarios[i].score; u++) { //recorre los "score" de los comentarios
+            content += `<span class="fa fa-star checked"></span>`
+            /* if (lista_de_comentarios[i].score es menor que 5) {
+                entonces imprimo <span class="fa fa-star"></span> hasta que llegue a 5
+            } despues de esto muestro la suma de content y mi nueva variable con las estrellas restantes*/
+        }
+        div_for_comments.innerHTML += `<div class="list-group-item"><b>${lista_de_comentarios[i].user}</b> - 
+        ${lista_de_comentarios[i].dateTime} - ${content}
+        <p>${lista_de_comentarios[i].description}</p></div>`
+        content = "" //después de cada iteración la variable content (la puntuación) se vuelve cero.
+
+    }
+}
+
+showComments()
