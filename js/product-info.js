@@ -56,12 +56,14 @@ const div_for_comments = document.getElementById("comments");
 
 function showComments() {
     let content = ""
+    let u;
     for ( let i = 0; i < lista_de_comentarios.length; i++) { //recorre los comentarios
-        for (let u = 0; u < lista_de_comentarios[i].score; u++) { //recorre los "score" de los comentarios
+        for ( u = 0; u < lista_de_comentarios[i].score; u++) { //recorre los "score" de los comentarios
             content += `<span class="fa fa-star checked"></span>`
-            /* if (lista_de_comentarios[i].score es menor que 5) {
-                entonces imprimo <span class="fa fa-star"></span> hasta que llegue a 5
-            } despues de esto muestro la suma de content y mi nueva variable con las estrellas restantes*/
+        }
+        while ( u < 5) {
+            content += `<span class="fa fa-star"></span>`
+            u++
         }
         div_for_comments.innerHTML += `<div class="list-group-item"><b>${lista_de_comentarios[i].user}</b> - 
         ${lista_de_comentarios[i].dateTime} - ${content}
@@ -72,3 +74,29 @@ function showComments() {
 }
 
 showComments()
+
+console.log(lista_de_comentarios.length);
+
+// COMENTAR
+
+let do_comments = document.getElementById("comentar");
+
+
+function comentar() {
+        do_comments.innerHTML = `<h3>Comentar</h3>
+        <p>Tu opinión</p>
+        <textarea rows="3" cols="60"></textarea>
+        <p>Tu puntuación</p>
+        <div class="col-md-2 mb-3">
+        <select class="custom-select form-select d-block w-100">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        </div>
+        <button class="btn btn-primary btn-lg" type="submit">Enviar</button>`
+}
+
+comentar()

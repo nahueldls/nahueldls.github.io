@@ -1,5 +1,5 @@
 // Usando la Api fetch -----
-const id = localStorage.getItem("catID"); 
+let id = localStorage.getItem("catID"); 
 const lista = await fetch(`https://japceibal.github.io/emercado-api/cats_products/${id}.json`)
                  .then(response => response.json());
                 //  console.log(productos[0]) //prueba de que funciona
