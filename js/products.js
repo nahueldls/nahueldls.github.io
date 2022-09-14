@@ -147,26 +147,6 @@ limpiar.addEventListener("click", clearAll)
 
 
 
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let texto = document.getElementById("textogrande");
 
 switch (id) {
@@ -203,15 +183,12 @@ switch (id) {
 }
 
 
+//BUSCADOR
 
+const buscador = document.getElementById("search");
 
+buscador.addEventListener("keyup", () =>{
 
-
-           //cosas que me ayudaron
-        //console.log(mostrar += lista_de_productos.products[i].name)
-        //<p>${lista_de_productos.products[i].name}</p>
-        //<p>${lista_de_productos.products[i].description}</p>
-        //<p>${lista_de_productos.products[i].cost}</p>
-        //<p>${lista_de_productos.products[i].soldCount}</p>
-        //<img src="${lista_de_productos.products[i].image}" />
+        crearHtml(productos.filter(filtrados => filtrados.name.toLowerCase().includes(buscador.value)))
+})
             
