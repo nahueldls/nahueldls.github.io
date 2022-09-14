@@ -62,7 +62,7 @@ function showComments() {
             content += `<span class="fa fa-star checked"></span>`
         }
         while ( u < 5) {
-            content += `<span class="fa fa-star"></span>`
+            content += `<span class="far fa-star"></span>`
             u++
         }
         div_for_comments.innerHTML += `<div class="list-group-item"><b>${lista_de_comentarios[i].user}</b> - 
