@@ -53,9 +53,11 @@ const lista_de_comentarios = await fetch(`https://japceibal.github.io/emercado-a
 
 const div_for_comments = document.getElementById("comments");
 
+let content = "" /* content representa las estrellas,como yo voy a usar estrellas en más de una función
+lo que hago es definir la variable como global para que no tenga problema cuando la use en más de una función. */
 
 function showComments() {
-    let content = ""
+    // let content = ""
     let u;
     for ( let i = 0; i < lista_de_comentarios.length; i++) { //recorre los comentarios
         for ( u = 0; u < lista_de_comentarios[i].score; u++) { //recorre los "score" de los comentarios
@@ -75,7 +77,7 @@ function showComments() {
 
 showComments()
 
-console.log(lista_de_comentarios.length);
+// console.log(lista_de_comentarios.length);
 
 // COMENTAR
 
@@ -85,10 +87,10 @@ let do_comments = document.getElementById("comentar");
 function comentar() {
         do_comments.innerHTML = `<h3>Comentar</h3>
         <p>Tu opinión</p>
-        <textarea rows="3" cols="60"></textarea>
+        <textarea rows="3" cols="60" id="reseña"></textarea>
         <p>Tu puntuación</p>
         <div class="col-md-2 mb-3">
-        <select class="custom-select form-select d-block w-100">
+        <select class="custom-select form-select d-block w-100" id="rank">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -96,7 +98,49 @@ function comentar() {
             <option value="5">5</option>
         </select>
         </div>
-        <button class="btn btn-primary btn-lg" type="submit">Enviar</button>`
+        <button class="btn btn-primary btn-lg" type="submit" id="send">Enviar</button>`
 }
 
 comentar()
+
+//AGREGAR UN COMENTARIO
+
+const btn_enviar = document.getElementById("send");
+const reseña = document.getElementById("reseña");
+const make_A_Rank = document.getElementById("rank");
+
+
+function makeAcomment() {
+    // fecha
+    let today = new Date()
+    let day = today.getDate()
+    let month = today.getMonth() + 1;
+    let year = today.getFullYear();
+    let hours = today.getHours();
+    let min = today.getMinutes();
+    let sec = today.getSeconds();
+
+
+    //estrellas
+    let u;
+    // let content;
+    for ( u = 0; u < make_A_Rank.value; u++) { //recorre los valores de la puntuación
+        content += `<span class="fa fa-star checked"></span>`
+    }
+    while ( u < 5) {
+        content += `<span class="far fa-star"></span>`
+        u++
+    }
+    
+    
+    // comentario
+        div_for_comments.innerHTML += `<div class="list-group-item"><b>${localStorage.getItem("email")}</b> 
+        - ${month}/${day}/${year} ${hours}:${min}:${sec} - ${content}
+        <p>${reseña.value}</p></div>`
+        reseña.value = ""
+        content = "";
+    // console.log(day)
+
+}
+
+btn_enviar.addEventListener("click", makeAcomment)
