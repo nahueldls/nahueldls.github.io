@@ -135,7 +135,7 @@ function makeAcomment() {
     
     // comentario
         div_for_comments.innerHTML += `<div class="list-group-item"><b>${localStorage.getItem("email")}</b> 
-        - ${month}/${day}/${year} ${hours}:${min}:${sec} - ${content}
+        - ${day}/${month}/${year} ${hours}:${min}:${sec} - ${content}
         <p>${reseña.value}</p></div>`
         reseña.value = ""
         content = "";
