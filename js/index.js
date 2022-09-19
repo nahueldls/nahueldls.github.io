@@ -12,3 +12,12 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+
+
+const sesion = document.getElementById("Log-out")
+
+sesion.addEventListener("click", () => {
+    window.location.replace("index.html");
+    nav.innerHTML = ""
+
+})

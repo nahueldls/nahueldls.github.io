@@ -85,7 +85,7 @@ let do_comments = document.getElementById("comentar");
 
 
 function comentar() {
-        do_comments.innerHTML = `<h3>Comentar</h3>
+        do_comments.innerHTML = ` <h3  class="p-4">Comentar</h3>
         <p>Tu opinión</p>
         <textarea rows="3" cols="60" id="reseña"></textarea>
         <p>Tu puntuación</p>
@@ -144,3 +144,22 @@ function makeAcomment() {
 }
 
 btn_enviar.addEventListener("click", makeAcomment)
+
+//PRODUCTOS RELACIONADOS
+
+let related_products = document.getElementById("related_products");
+
+// console.log(lista_de_productos.relatedProducts[0]); muestra los related products
+
+function show_related_products(list) {
+    for (let i = 0; i < list.length; i++) {
+        related_products.innerHTML += `
+        <img src="${list[i].image}" alt="${list[i].name}" class="mb-4 shadow-sm custom-card " height="150px">`
+        
+    }
+}
+
+show_related_products(lista_de_productos.relatedProducts)
+
+
+
