@@ -27,3 +27,5 @@ function validation() {
      }
 }
 button.addEventListener("click", validation);
+
+console.log(localStorage.getItem("id"))

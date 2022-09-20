@@ -14,11 +14,15 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 
-const sesion = document.getElementById("Log-out")
+// const sesion = document.getElementById("Log-out")
 
-sesion.addEventListener("click", logOut)
+// sesion.addEventListener("click", logOut)
 
-function logOut() {
-    window.location.replace("index.html");
-    nav.innerHTML = ""
-}
+// function logOut() {
+//     window.location.replace("index.html");
+//     nav.innerHTML = ""
+//     // localStorage.getItem("email") = ""
+// } Esta función debe ir en el init.js ya que el mismo está enlazado a cada archivo html los cuales deben recibir la funcionalidad
+
+
+

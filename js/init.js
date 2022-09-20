@@ -42,3 +42,14 @@ let getJSONData = function(url){
 
 const nav = document.getElementById("local");
 nav.innerHTML = localStorage.getItem("email");
+
+// FUNCIONALIDAD EN EL USER
+const sesion = document.getElementById("Log-out")
+
+sesion.addEventListener("click", logOut)
+
+function logOut() {
+    window.location.replace("index.html");
+    nav.innerHTML = ""
+    // localStorage.getItem("email") = ""
+}
