@@ -16,8 +16,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
 const sesion = document.getElementById("Log-out")
 
-sesion.addEventListener("click", () => {
+sesion.addEventListener("click", logOut)
+
+function logOut() {
     window.location.replace("index.html");
     nav.innerHTML = ""
-
-})
+}

@@ -24,6 +24,6 @@ function validation() {
         localStorage.setItem("email", e.value);
         const mostra = localStorage.getItem("email")
         location.href = "portada.html"
-    }
+     }
 }
 button.addEventListener("click", validation);
