@@ -50,6 +50,5 @@ sesion.addEventListener("click", logOut)
 
 function logOut() {
     window.location.replace("index.html");
-    nav.innerHTML = ""
-    // localStorage.getItem("email") = ""
+    localStorage.setItem("email","")
 }

@@ -24,5 +24,7 @@ document.addEventListener("DOMContentLoaded", function(){
 //     // localStorage.getItem("email") = ""
 // } Esta función debe ir en el init.js ya que el mismo está enlazado a cada archivo html los cuales deben recibir la funcionalidad
 
+console.log(localStorage.getItem("email"))
+
 
 
