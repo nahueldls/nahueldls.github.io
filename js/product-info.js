@@ -149,17 +149,34 @@ btn_enviar.addEventListener("click", makeAcomment)
 
 let related_products = document.getElementById("related_products");
 
-// console.log(lista_de_productos.relatedProducts[0]); muestra los related products
+// console.log(lista_de_productos.relatedProducts[0]); muestra los related products mb-4 shadow-sm custom-card height="150px"
+
+
+// REDIRECCIÓN
+
+
 
 function show_related_products(list) {
     for (let i = 0; i < list.length; i++) {
         related_products.innerHTML += `
-        <img src="${list[i].image}" alt="${list[i].name}" class="mb-4 shadow-sm custom-card " height="150px">`
+        <img src="${list[i].image}" alt="${list[i].name}" class="mb-4 shadow-sm custom-card cursor-active redirect" height="150px">`
         
     }
+
+    const class_for_redirect = document.getElementsByClassName("redirect");
+    
+    for (let i = 0; i < list.length; i++) {
+        class_for_redirect[i].addEventListener("click", function() {
+            localStorage.setItem("productID", list[i].id);
+            window.location = "product-info.html"
+        })
+        
+    }
+    
 }
 
 show_related_products(lista_de_productos.relatedProducts)
+
 
 
 
