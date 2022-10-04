@@ -147,7 +147,7 @@ btn_enviar.addEventListener("click", makeAcomment)
 
 //PRODUCTOS RELACIONADOS
 
-let related_products = document.getElementById("related_products");
+let related_products = document.getElementById("related_products"); //contenedor the productos relacionados
 
 // console.log(lista_de_productos.relatedProducts[0]); muestra los related products mb-4 shadow-sm custom-card height="150px"
 
@@ -163,7 +163,7 @@ function show_related_products(list) {
         
     }
 
-    const class_for_redirect = document.getElementsByClassName("redirect");
+    const class_for_redirect = document.getElementsByClassName("redirect"); //array de imagenes (de los productos relacionados)
     
     for (let i = 0; i < list.length; i++) {
         class_for_redirect[i].addEventListener("click", function() {
