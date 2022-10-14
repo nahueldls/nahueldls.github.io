@@ -50,11 +50,31 @@
   </nav>
   <main>
     <div class="container">
-      <h1 class="text-center p-4">Carrito de compras</h1>
+      <h1 class="text-center p-4" >Carrito de compras</h1>
       <h3>Artículos a comprar</h3>
-      <div id="article"></div>
+      <div id="article">
+        <table>
+          <tr>
+          <th>foto</th>
+          <th>Nombre</th>
+          <th>Costo</th>
+          <th>Cantidad</th>
+          <th>Subtotal</th>
+          </tr>
+      
+          <tr>
+          <td><img src="" height="35px" width="45px" alt="auto" id="product_imagen" ></td>
+          <td id="nombre"></td>
+          <td id="costo"></td>
+          <td> <input style=" width: 60px;" type="number" min="1" id="cantprod" value = "1" > </td>
+          <td id="subtotal"></td>
+          
+          </tr>
+          </table>
+      </div>
 
-      <div id="send"></div>
+      <div id="send">
+      </div>
       </div>
     </div>
   </main>

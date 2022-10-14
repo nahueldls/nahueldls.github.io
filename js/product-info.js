@@ -148,22 +148,41 @@ btn_enviar.addEventListener("click", makeAcomment)
 //PRODUCTOS RELACIONADOS
 
 let related_products = document.getElementById("related_products"); //contenedor the productos relacionados
+related_products.innerHTML += `
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner" id="carousel_products">
 
-// console.log(lista_de_productos.relatedProducts[0]); muestra los related products mb-4 shadow-sm custom-card height="150px"
-
-
+    
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>`
+let carousel = document.getElementById("carousel_products");
+console.log(carousel)
 // REDIRECCIÓN
 
-
+//mb-4 shadow-sm custom-card cursor-active redirect
 
 function show_related_products(list) {
     for (let i = 0; i < list.length; i++) {
-        related_products.innerHTML += `
-        <img src="${list[i].image}" alt="${list[i].name}" class="mb-4 shadow-sm custom-card cursor-active redirect" height="150px">`
+        carousel.innerHTML += `
+        <div class="carousel-item active">
+          <img src="${list[i].image}" alt="${list[i].name}" class="d-block w-100 redirect" />
+        </div>`
         
     }
-
-    const class_for_redirect = document.getElementsByClassName("redirect"); //array de imagenes (de los productos relacionados)
+    const class_for_redirect = document.getElementsByClassName("redirect"); //array de imagenes(de los productos relacionados)
     
     for (let i = 0; i < list.length; i++) {
         class_for_redirect[i].addEventListener("click", function() {
@@ -176,7 +195,3 @@ function show_related_products(list) {
 }
 
 show_related_products(lista_de_productos.relatedProducts)
-
-
-
-
