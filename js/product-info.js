@@ -150,11 +150,7 @@ btn_enviar.addEventListener("click", makeAcomment)
 let related_products = document.getElementById("related_products"); //contenedor the productos relacionados
 related_products.innerHTML += `
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
+  
   <div class="carousel-inner" id="carousel_products">
 
     
@@ -169,7 +165,7 @@ related_products.innerHTML += `
   </button>
 </div>`
 let carousel = document.getElementById("carousel_products");
-console.log(carousel)
+// console.log(carousel)
 // REDIRECCIÓN
 
 //mb-4 shadow-sm custom-card cursor-active redirect
@@ -177,11 +173,14 @@ console.log(carousel)
 function show_related_products(list) {
     for (let i = 0; i < list.length; i++) {
         carousel.innerHTML += `
-        <div class="carousel-item active">
+        <div class="carousel-item">
           <img src="${list[i].image}" alt="${list[i].name}" class="d-block w-100 redirect" />
         </div>`
         
     }
+
+    carousel.children[0].classList.add("active")
+
     const class_for_redirect = document.getElementsByClassName("redirect"); //array de imagenes(de los productos relacionados)
     
     for (let i = 0; i < list.length; i++) {
@@ -195,3 +194,10 @@ function show_related_products(list) {
 }
 
 show_related_products(lista_de_productos.relatedProducts)
+
+
+// { <div class="carousel-indicators">
+//     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+//     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+//     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+//   </div> }
