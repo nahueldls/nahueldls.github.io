@@ -2,7 +2,7 @@
 const id_products = localStorage.getItem("productID");
 const lista_de_productos = await fetch(`https://japceibal.github.io/emercado-api/products/${id_products}.json`)
 .then(response => response.json())
-
+console.log(lista_de_productos);
 
 // console.log(lista_de_productos.images[0])
 let contenedor_div = document.getElementById("producto");
@@ -13,7 +13,7 @@ function showcontent(array_list) {
     let content = ""
 
      content = `
-     <h1 class="p-4">${array_list.name}</h1> <hr class="mb-4">
+     <h1 class="p-4" style=" display: inline;">${array_list.name}</h1> <button id="carrito" class="btn btn-primary btn-lg" type="submit" style=" margin: 50px 0 50px 500px;">Comprar</button> <hr class="mb-4">
      <h3>Precio</h3>
      <p>${array_list.currency}-${array_list.cost}</p>
      <h3>Descripción</h3>
@@ -201,3 +201,20 @@ show_related_products(lista_de_productos.relatedProducts)
 //     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
 //     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
 //   </div> }
+
+
+
+
+
+
+//    ----------------cart.html------------------
+localStorage.setItem(lista_de_productos.name , localStorage.getItem("productID"))
+
+const cart = document.getElementById("carrito");
+cart.addEventListener("click", htmlCart)
+function htmlCart() {    
+    let item = localStorage.getItem(`${lista_de_productos.name}`)
+    console.log(item);
+    location.href = "cart.html"
+}
+

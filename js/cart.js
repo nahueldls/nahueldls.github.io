@@ -1,5 +1,5 @@
 //USANDO API FETCH
-const cart_list = await fetch( CART_INFO_URL + "25801.json" )
+const cart_list = await fetch(CART_INFO_URL + "25801.json")
 .then( response => response.json())
 // console.log(cantidad)
 
@@ -50,9 +50,30 @@ function forSends() {
 
 forSends()
 
-//ADDING FUNCIONALITY FOR SUBTOTAL
+    //ADDING A PRODUCT IN THE CART
+import { item } from "./product-info.js"
+let id_for_cart = localStorage.getItem( item )
+console.log(id_for_cart);
+let product_content = document.getElementById("new_product")
 
+let newProduct =  await fetch(`https://japceibal.github.io/emercado-api/products/${id_for_cart}.json`)
+.then( response => response.json())
+// console.log(newProduct)
 
+function addingTheProduct() {
+        product_content.innerHTML += `
+        
+        <tr>
+        <td><img src="${newProduct.images[0]}" height="35px" width="45px" alt="auto" ></td>
+        <td>${newProduct.name}</td>
+        <td>USD ${newProduct.cost}</td>
+        <td> <input style=" width: 60px;" type="number" min="1" value = "1" > </td>
+        <td></td>
+        </tr>
+        `
+}
+
+// addingTheProduct()
 
 
 
