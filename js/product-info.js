@@ -208,13 +208,22 @@ show_related_products(lista_de_productos.relatedProducts)
 
 
 //    ----------------cart.html------------------
-localStorage.setItem(lista_de_productos.name , localStorage.getItem("productID"))
+
 
 const cart = document.getElementById("carrito");
 cart.addEventListener("click", htmlCart)
+
+
 function htmlCart() {    
-    let item = localStorage.getItem(`${lista_de_productos.name}`)
-    console.log(item);
+   const are_there_previous_items = JSON.parse(localStorage.getItem("items"));
+
+   if(!are_there_previous_items) {
+    localStorage.setItem("items", JSON.stringify([lista_de_productos]));
     location.href = "cart.html"
+    return;
+   }
+
+   localStorage.setItem("items", JSON.stringify([...are_there_previous_items, lista_de_productos]))
+   location.href = "cart.html"
 }
 

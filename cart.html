@@ -30,17 +30,18 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li id="nav-item">
-          <div class="btn-group btn-secondary">
-            <button type="button" class="btn" id="local"></button>
-            <button type="button" class="btn dropdown-toggle dropdown-toggle-split " data-bs-toggle="dropdown" aria-expanded="false">
-              <span class="visually-hidden">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-              <li><a class="dropdown-item" id="Log-out">Cerrar sesión</a></li>
-            </ul>
-          </div>
+            <div class="btn-group btn-secondary">
+              <button type="button" class="btn" id="local"></button>
+              <button type="button" class="btn dropdown-toggle dropdown-toggle-split " data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <span class="visually-hidden">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><a class="dropdown-item" id="Log-out">Cerrar sesión</a></li>
+              </ul>
+            </div>
           </li>
           <li class="nav-item">
           </li>
@@ -50,32 +51,44 @@
   </nav>
   <main>
     <div class="container">
-      <h1 class="text-center p-4" >Carrito de compras</h1>
+      <h1 class="text-center p-4">Carrito de compras</h1>
       <h3>Artículos a comprar</h3>
       <div id="article">
         <table id="new_product">
           <tr>
-          <th>foto</th>
-          <th>Nombre</th>
-          <th>Costo</th>
-          <th>Cantidad</th>
-          <th>Subtotal</th>
+            <th>foto</th>
+            <th>Nombre</th>
+            <th>Costo</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
           </tr>
-      
-          <tr>
-          <td><img src="" height="35px" width="45px" alt="auto" id="product_imagen" ></td>
-          <td id="nombre"></td>
-          <td id="costo"></td>
-          <td> <input style=" width: 60px;" type="number" min="1" id="cantprod" value = "1" > </td>
-          <td id="subtotal"></td>
-          </tr>
-          
-          </table>
+
+        </table>
       </div>
 
       <div id="send">
       </div>
+
+
+      <div id="info_container">
+        <h3>Costos</h3>
+        <div class="list-group-item">
+          <h6>Subtotal</h6>
+          <p>Costo unitario del producto por cantidad</p> <div id="subtotal_general"></div>
+        </div>
+
+        <div class="list-group-item">
+          <h6>Costo de envío</h6>
+          <p>Según el tipo de envío</p>  <div id="shippingType"></div>
+        </div>
+
+        <div class="list-group-item">
+          <h6>Total ($)</h6> <div id="finalvalue"></div>
+        </div>
       </div>
+    </div>
+    </div>
+    </div>
     </div>
   </main>
   <footer class="text-muted">
@@ -102,3 +115,4 @@
 </body>
 
 </html>
+
