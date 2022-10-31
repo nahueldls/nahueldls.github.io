@@ -5,6 +5,7 @@ const porcentaje_standard = 5;
 const porcentaje_premium = 15;
 const porcentaje_express = 7;
 
+
 const section_send = document.getElementById("send"); //Div where I store the content for sends
 
 function forSends() {
@@ -28,6 +29,10 @@ function forSends() {
 }
 
 forSends()
+
+const standard_radio = document.getElementById("standard");
+const express_radio = document.getElementById("express");
+const premium_radio = document.getElementById("premium");
 
     //ADDING A PRODUCT IN THE CART
 
@@ -78,6 +83,24 @@ function subtotalPrices() {
                         //Para mostrar el subtotal de la sección costos en función de la cantidad de productos
                                 num = 0
                                 showAllCost()
+                                //porcentaje estandard
+                                if ( standard_radio.checked == true ) {
+                                        porcentaje = porcentaje_standard * num / 100;
+                                        shippingType.innerText = "USD" + " " + porcentaje
+                                        document.getElementById("finalvalue").innerHTML = "USD " + ( num + porcentaje )
+                                }
+                                //porcentaje express
+                                if ( express_radio.checked == true ) {
+                                        porcentaje = porcentaje_express * num / 100;
+                                        shippingType.innerText = "USD" + " " + porcentaje
+                                        document.getElementById("finalvalue").innerHTML = "USD " + ( num + porcentaje )
+                                }
+                                //porcentaje premium
+                                if ( premium_radio.checked == true) {
+                                        porcentaje = porcentaje_express * num / 100;
+                                        shippingType.innerText = "USD" + " " + porcentaje
+                                        document.getElementById("finalvalue").innerHTML = "USD " + ( num + porcentaje )
+                                }
                 })  
                 
         }
