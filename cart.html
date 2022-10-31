@@ -85,6 +85,48 @@
         <div class="list-group-item">
           <h6>Total ($)</h6> <div id="finalvalue"></div>
         </div>
+        <hr>
+      </div>
+
+      <div id="modal">
+        <h3>Forma de pago</h3>
+
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="modal">
+  Seleccionar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h4>Forma de pago</h4>
+        <hr>
+        <input type="radio" name="medio" id="tarjeta_radio"> <label for="tarjeta"> Tarjeta de crédito </label>
+        <hr>
+        <label for="tar_numb">Número de tarjeta </label> <input type="text" name="" id="tar_numb" class="from_tar">
+        <label for="security_code"> Código de seg <input type="text" name="" id="security_code" class="from_tar"> </label>
+        <label for="vencimiento"> Vencimiento (MM/AA) <input type="text" name="" id="vencimiento" class="from_tar"> </label>
+        
+        <label for="transf"> Transferencia bancaria <input type="radio" name="medio" id="transf"> </label>
+        <hr>
+        <label for="count_number"> Número de cuenta <input type="text" name="" id="count_number" disabled> </label>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="save_changes">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<button type="button" class="btn btn-primary" id="fin_compr">Finalizar compra</button>
       </div>
     </div>
     </div>
