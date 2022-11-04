@@ -1,4 +1,3 @@
-document.getElementById("email").value = localStorage.getItem("email")
 const save_changes_button = document.getElementById("save_changes");
 
 
@@ -31,7 +30,7 @@ const save_changes_button = document.getElementById("save_changes");
   los muestra cada vez que el ususario ingrese,hasta que se cambien los datos.
   si los datos ya existen,los reescribe.*/
 const array_de_datos = []
-const form_input = document.getElementsByClassName("form-control");
+const form_input = document.getElementsByClassName("keep-data");
 let array_json;
 
 // console.log(!array_json);
@@ -57,6 +56,7 @@ let array_json;
   save_changes_button.addEventListener("click", save_data)
   
   document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("email_for_profile").value = localStorage.getItem("email")
     for (let x = 0; x < form_input.length; x++) {
         form_input[x].value = localStorage.getItem(x)
         
@@ -64,5 +64,5 @@ let array_json;
   })
   
 
-
+console.log(document.getElementById("email_for_profile").value);
 
