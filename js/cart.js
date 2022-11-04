@@ -182,14 +182,13 @@ wire_transfer.addEventListener("click", () => {
         wire_transfer_input.disabled = false
 })
 
-const save_changes = document.getElementById("save_changes")
+// const save_changes = document.getElementById("save_changes")
 // save_changes.addEventListener("click", () => {
 
 // })
-const alert_ok = `<div class="alert alert-success" role="alert">
-Su compra ha sido realizada con éxito
-</div>`
-
+// const alert_ok = `<div class="alert alert-success" role="alert">
+// Su compra ha sido realizada con éxito
+// </div>`
 const button_send = document.getElementById("fin_compr");
 const shippingtype_radio = document.getElementsByClassName("shippingtype_radio");
 const second_check = document.getElementsByClassName("second_check")

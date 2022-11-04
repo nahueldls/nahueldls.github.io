@@ -65,9 +65,78 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+      <h1 class="mt-3">Perfil</h1>
+      <hr>
+      <form class="needs-validation" novalidate>
+        <div>
+          <label for="first_name">Primer Nombre</label> 
+          <input type="text" class="form-control" id="first_name" required>
+          <div class="valid-feedback">
+            Guardado correctamente
+          </div>
+          <div class="invalid-feedback">
+            Ingrese su primer nombre 
+          </div>
+        </div>
+
+        <div>
+          <label for="second_name">Segundo nombre</label> 
+          <input type="text" id="second_name" required class="form-control">
+          <div class="valid-feedback">
+            Guardado correctamente
+          </div>
+          <div class="invalid-feedback">
+            Ingrese su segundo nombre 
+          </div>
+        </div>
+
+        <div>
+          <label for="last_name">Primer apellido</label> 
+          <input type="text" id="last_name" required class="form-control">
+          <div class="valid-feedback">
+            Guardado correctamente
+          </div>
+          <div class="invalid-feedback">
+            Ingrese su primer apellido
+          </div>
+        </div>
+
+        <div>
+          <label for="last_secondname">Segundo apellido</label> 
+          <input type="text" id="last_secondname" required class="form-control">
+          <div class="valid-feedback">
+            Guardado correctamente
+          </div>
+          <div class="invalid-feedback">
+            Ingrese su segundo apellido 
+          </div>
+        </div>  
+
+        <div>
+          <label for="email">E-mail</label> 
+          <input type="text" id="email" required class="form-control">
+          <div class="valid-feedback">
+            Guardado correctamente
+          </div>
+          <div class="invalid-feedback">
+            Ingrese email
+          </div>
+        </div>
+        
+        <div>
+          <label for="phone_number">Teléfono</label> 
+          <input type="text" id="phone_number" required class="form-control">
+          <div class="valid-feedback">
+            Guardado correctamente
+          </div>
+          <div class="invalid-feedback">
+            Ingrese su teléfono
+          </div>
+        </div>  
+          
+          <button type="button" class="btn btn-primary" id="save_changes">Guardar cambios</button>
+      </form>
+      <hr>
     </div>
   </main>
   <footer class="text-muted">
