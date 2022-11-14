@@ -37,18 +37,19 @@ const premium_radio = document.getElementById("premium");
     //ADDING A PRODUCT IN THE CART
 
 let product_content = document.getElementById("new_product");
-const items = JSON.parse(localStorage.getItem("items"));
+let items = JSON.parse(localStorage.getItem("items"));
 // console.log(items[0].cost);
+/* borro el elemento correspondiente de items,reinicio la página y se realiza de nuevo este procedimiento */
 
 items.forEach(item => {
         product_content.innerHTML += `
         
         <tr>
-        <td><img src="${item.images[0]}" height="35px" width="45px" alt="auto" ></td>
+        <td><img src="${item.images[0]}" height="35px" width="45px" alt="auto" ></td> 
         <td>${item.name}</td>
         <td>${item.currency} ${item.cost}</td>
         <td> <input style=" width: 60px;" type="number" min="1" value = "1" class="cantidad"> </td>
-        <td class="subtotal"></td>
+        <td class="subtotal"></td> <td> <button type="button" class="trashCan"> <i class="bi-trash" style=" color: red;"></i> </button></td>
         </tr>
         `
 
@@ -192,7 +193,7 @@ wire_transfer.addEventListener("click", () => {
 const button_send = document.getElementById("fin_compr");
 const shippingtype_radio = document.getElementsByClassName("shippingtype_radio");
 const second_check = document.getElementsByClassName("second_check")
-console.log(second_check);
+// console.log(second_check);
 button_send.addEventListener("click", () => {
 
         if ( ( shippingtype_radio[0].checked == true || shippingtype_radio[1].checked == true || shippingtype_radio[2].checked == true ) && (credit_card.checked == true || wire_transfer.checked == true) ) {
@@ -224,3 +225,25 @@ button_send.addEventListener("click", () => {
 })
 // console.log(credit_card);
 // console.log(wire_transfer.checked);
+
+
+let delete_product = document.getElementsByClassName("trashCan");
+
+console.log(items);
+for (let h = 0; h < delete_product.length; h++) {
+        delete_product[h].addEventListener("click", () => {
+                let new_items = items.filter( item => item.name != items[h].name)  
+                items = new_items
+                localStorage.removeItem("items")
+                localStorage.setItem("items", JSON.stringify(items))
+                location.href = "cart.html"
+        })
+}
+
+//items array it´s equals to "itmes" from LS so... i need modify the items arrays value and finally
+//equals the new items arrays value to the "items" from LS (before recharge the page)
+//
+
+// const new_items = items.filter( item => item.name != "Chevrolet Onix Joy" ) 
+// console.log(new_items);
+// console.log(items[0].name);

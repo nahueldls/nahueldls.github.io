@@ -2,8 +2,6 @@ const save_changes_button = document.getElementById("save_changes");
 
 
 
-
-
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
     'use strict'
@@ -62,7 +60,3 @@ let array_json;
         
     }
   })
-  
-
-console.log(document.getElementById("email_for_profile").value);
-
